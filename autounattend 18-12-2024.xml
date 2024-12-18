@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
-	<!--https://schneegans.de/windows/unattend-generator/?LanguageMode=Unattended&UILanguage=pt-BR&Locale=pt-BR&Keyboard=00020409&UseKeyboard2=true&Locale2=pt-BR&Keyboard2=00010416&GeoLocation=32&ProcessorArchitecture=amd64&BypassRequirementsCheck=true&BypassNetworkCheck=true&ComputerNameMode=Script&ComputerNameScript=return+%27ZEBALLOS-TI-%7B0%3AD3%7D%27+-f+%28+Get-Random+-Minimum+0+-Maximum+999+%29%3B&CompactOsMode=Default&TimeZoneMode=Explicit&TimeZone=E.+South+America+Standard+Time&PartitionMode=Interactive&WindowsEditionMode=Generic&WindowsEdition=pro&UserAccountMode=Unattended&AccountName0=Zeballos&AccountPassword0=270972&AccountGroup0=Administrators&AccountName1=&AccountName2=&AccountName3=&AccountName4=&AutoLogonMode=Own&PasswordExpirationMode=Unlimited&LockoutMode=Default&HideFiles=HiddenSystem&ShowFileExtensions=true&LaunchToThisPC=true&TaskbarSearch=Icon&TaskbarIconsMode=Empty&DisableWidgets=true&LeftTaskbar=true&StartTilesMode=Default&StartPinsMode=Empty&DisableFastStartup=true&DisableSystemRestore=true&EnableLongPaths=true&EnableRemoteDesktop=true&HardenSystemDriveAcl=true&AllowPowerShellScripts=true&DisableLastAccess=true&PreventAutomaticReboot=true&DisableAppSuggestions=true&HideEdgeFre=true&WifiMode=Interactive&ExpressSettings=DisableAll&KeysMode=Configure&CapsLockInitial=Off&CapsLockBehavior=Toggle&NumLockInitial=On&NumLockBehavior=Toggle&ScrollLockInitial=Off&ScrollLockBehavior=Toggle&ColorMode=Default&WallpaperMode=Solid&WallpaperColor=%231b0948&Remove3DViewer=true&RemoveBingSearch=true&RemoveCortana=true&RemoveFeedbackHub=true&RemoveGetHelp=true&RemoveHandwriting=true&RemoveInternetExplorer=true&RemoveMailCalendar=true&RemoveMaps=true&RemoveMathInputPanel=true&RemoveMixedReality=true&RemoveZuneVideo=true&RemoveNews=true&RemoveOneSync=true&RemoveOutlook=true&RemovePaint3D=true&RemovePeople=true&RemoveRecall=true&RemoveSkype=true&RemoveSolitaire=true&RemoveStepsRecorder=true&RemoveTeams=true&RemoveGetStarted=true&RemoveToDo=true&RemoveWallet=true&RemoveWeather=true&RemoveFaxAndScan=true&RemoveWindowsMediaPlayer=true&RemoveZuneMusic=true&WdacMode=Skip-->
+	<!--https://schneegans.de/windows/unattend-generator/?LanguageMode=Unattended&UILanguage=pt-BR&Locale=pt-BR&Keyboard=00020409&UseKeyboard2=true&Locale2=pt-BR&Keyboard2=00010416&GeoLocation=32&ProcessorArchitecture=amd64&BypassRequirementsCheck=true&BypassNetworkCheck=true&ComputerNameMode=Script&ComputerNameScript=return+%27ZEBALLOS-TI-%7B0%3AD3%7D%27+-f+%28+Get-Random+-Minimum+0+-Maximum+999+%29%3B&CompactOsMode=Default&TimeZoneMode=Explicit&TimeZone=E.+South+America+Standard+Time&PartitionMode=Interactive&WindowsEditionMode=Generic&WindowsEdition=pro&UserAccountMode=Unattended&AccountName0=Zeballos&AccountPassword0=270972&AccountGroup0=Administrators&AccountName1=&AccountName2=&AccountName3=&AccountName4=&AutoLogonMode=Own&PasswordExpirationMode=Unlimited&LockoutMode=Default&HideFiles=Hidden&ShowFileExtensions=true&LaunchToThisPC=true&TaskbarSearch=Box&TaskbarIconsMode=Empty&DisableWidgets=true&LeftTaskbar=true&StartTilesMode=Empty&StartPinsMode=Empty&DisableSystemRestore=true&EnableLongPaths=true&EnableRemoteDesktop=true&HardenSystemDriveAcl=true&AllowPowerShellScripts=true&DisableLastAccess=true&PreventAutomaticReboot=true&DisableAppSuggestions=true&HideEdgeFre=true&WifiMode=Interactive&ExpressSettings=DisableAll&KeysMode=Configure&CapsLockInitial=Off&CapsLockBehavior=Toggle&NumLockInitial=On&NumLockBehavior=Toggle&ScrollLockInitial=Off&ScrollLockBehavior=Toggle&ColorMode=Default&WallpaperMode=Solid&WallpaperColor=%231b0948&Remove3DViewer=true&RemoveBingSearch=true&RemoveCortana=true&RemoveFeedbackHub=true&RemoveMaps=true&RemoveMathInputPanel=true&RemoveMixedReality=true&RemoveZuneVideo=true&RemoveNews=true&RemoveOneSync=true&RemoveOutlook=true&RemovePaint3D=true&RemovePeople=true&RemoveRecall=true&RemoveSkype=true&RemoveSolitaire=true&RemoveStepsRecorder=true&RemoveTeams=true&RemoveGetStarted=true&RemoveToDo=true&RemoveWallet=true&RemoveWeather=true&RemoveFaxAndScan=true&WdacMode=Skip-->
 	<settings pass="offlineServicing"></settings>
 	<settings pass="windowsPE">
 		<component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
@@ -177,9 +177,7 @@ $selectors = @(
 	'Microsoft.BingSearch';
 	'Microsoft.549981C3F5F10';
 	'Microsoft.WindowsFeedbackHub';
-	'Microsoft.GetHelp';
 	'Microsoft.Getstarted';
-	'microsoft.windowscommunicationsapps';
 	'Microsoft.WindowsMaps';
 	'Microsoft.MixedReality.Portal';
 	'Microsoft.BingNews';
@@ -193,7 +191,6 @@ $selectors = @(
 	'Microsoft.Todos';
 	'Microsoft.Wallet';
 	'Microsoft.BingWeather';
-	'Microsoft.ZuneMusic';
 	'Microsoft.ZuneVideo';
 );
 $getCommand = {
@@ -239,12 +236,9 @@ $logfile = 'C:\Windows\Setup\Scripts\RemovePackages.log';
 		<File path="C:\Windows\Setup\Scripts\RemoveCapabilities.ps1" transformation="Text">
 $selectors = @(
 	'Print.Fax.Scan';
-	'Language.Handwriting';
-	'Browser.InternetExplorer';
 	'MathRecognizer';
 	'OneCoreUAP.OneSync';
 	'App.StepsRecorder';
-	'Media.WindowsMediaPlayer';
 );
 $getCommand = {
   Get-WindowsCapability -Online | Where-Object -Property 'State' -NotIn -Value @(
@@ -416,6 +410,16 @@ $key = 'Registry::HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start';
 New-Item -Path $key -ItemType 'Directory' -ErrorAction 'SilentlyContinue';
 Set-ItemProperty -LiteralPath $key -Name 'ConfigureStartPins' -Value $json -Type 'String';
 		</File>
+		<File path="C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml" transformation="Text">
+&lt;LayoutModificationTemplate Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification"&gt;
+	&lt;LayoutOptions StartTileGroupCellWidth="6" /&gt;
+	&lt;DefaultLayoutOverride&gt;
+		&lt;StartLayoutCollection&gt;
+			&lt;StartLayout GroupCellWidth="6" xmlns="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" /&gt;
+		&lt;/StartLayoutCollection&gt;
+	&lt;/DefaultLayoutOverride&gt;
+&lt;/LayoutModificationTemplate&gt;
+		</File>
 		<File path="C:\Windows\Setup\Scripts\SetWallpaper.ps1" transformation="Text">
 Add-Type -TypeDefinition '
 	using System.Drawing;
@@ -533,9 +537,6 @@ $scripts = @(
 		Register-ScheduledTask -TaskName 'MoveActiveHours' -Xml $( Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\MoveActiveHours.xml' -Raw );
 	};
 	{
-		reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d 0 /f;
-	};
-	{
 		reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Dsh" /v AllowNewsAndInterests /t REG_DWORD /d 0 /f;
 	};
 	{
@@ -565,9 +566,6 @@ $scripts = @(
 		Set-ItemProperty -LiteralPath 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'LaunchTo' -Type 'DWord' -Value 1;
 	};
 	{
-		Set-ItemProperty -LiteralPath 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Search' -Name 'SearchboxTaskbarMode' -Type 'DWord' -Value 1;
-	};
-	{
 		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\SetWallpaper.ps1' -Raw | Invoke-Expression;
 	};
 );
@@ -586,9 +584,6 @@ $scripts = @(
 $scripts = @(
 	{
 		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f;
-	};
-	{
-		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f;
 	};
 	{
 		$names = @(
